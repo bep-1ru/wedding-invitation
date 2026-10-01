@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Свадьба Алены и Миши</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #0b1710; /* Темно-зеленый фон */
+            color: #f5f5dc; /* Кремовый текст */
+            font-family: 'Montserrat', sans-serif;
+            text-align: center;
+            background-image: radial-gradient(circle at 50% 0%, #1a3322 0%, #0b1710 70%);
+            background-attachment: fixed;
+        }
+        .container {
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+        }
+        /* Декоративная рамка */
+        .frame {
+            border: 1px solid #d4af37;
+            padding: 20px;
+            border-radius: 10px;
+            background: rgba(11, 23, 16, 0.8);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+        }
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 28px;
+            color: #d4af37; /* Золотой */
+            margin-bottom: 5px;
+            letter-spacing: 2px;
+        }
+        .date {
+            font-size: 20px;
+            color: #d4af37;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+        .subtitle {
+            font-style: italic;
+            font-size: 16px;
+            margin-bottom: 30px;
+            color: #a8c3a6;
+        }
+        p {
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            font-weight: 300;
+        }
+        .calendar {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        .day {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 12px;
+            color: #a8c3a6;
+        }
+        .day span {
+            font-size: 18px;
+            margin-top: 5px;
+            font-weight: 400;
+            color: #f5f5dc;
+        }
+        .highlight {
+            color: #d4af37 !important;
+            font-weight: 700 !important;
+            position: relative;
+        }
+        .highlight::after {
+            content: '❤';
+            position: absolute;
+            bottom: -15px;
+            font-size: 12px;
+            color: #d4af37;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border: 1px solid #d4af37;
+            color: #d4af37;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            margin: 20px 0;
+        }
+        .btn:hover {
+            background-color: #d4af37;
+            color: #0b1710;
+        }
+        .footer {
+            font-size: 12px;
+            color: #a8c3a6;
+            margin-top: 40px;
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
+            padding-top: 20px;
+        }
+        .program {
+            text-align: left;
+            margin: 30px auto;
+            max-width: 300px;
+        }
+        .program-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 14px;
+            border-bottom: 1px dotted rgba(212, 175, 55, 0.3);
+            padding-bottom: 5px;
+        }
+        .program-time {
+            color: #d4af37;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="frame">
+            <p style="font-size: 12px; letter-spacing: 2px; color: #a8c3a6;">ПРИГЛАШЕНИЕ НА СВАДЬБУ</p>
+            <h1>Алена & Миша</h1>
+            <div class="date">22 . 05 . 2026</div>
+            
+            <div class="subtitle">Волшебство любви начинается здесь!</div>
+            
+            <p>Дорогие гости!<br>Совсем скоро наступит день, который станет для нас особенным. С огромной радостью и большой любовью приглашаем вас разделить с нами трогательный и важный момент нашей жизни!</p>
+            
+            <!-- Календарь -->
+            <div class="calendar">
+                <div class="day">Пн<span>18</span></div>
+                <div class="day">Вт<span>19</span></div>
+                <div class="day">Ср<span>20</span></div>
+                <div class="day">Чт<span>21</span></div>
+                <div class="day">Пт<span class="highlight">22</span></div>
+                <div class="day">Сб<span>23</span></div>
+                <div class="day">Вс<span>24</span></div>
+            </div>
+
+            <!-- Программа -->
+            <div class="program">
+                <div class="program-item"><span class="program-time">15:00</span> <span>Сбор гостей</span></div>
+                <div class="program-item"><span class="program-time">16:00</span> <span>Церемония</span></div>
+                <div class="program-item"><span class="program-time">18:00</span> <span>Банкет</span></div>
+                <div class="program-item"><span class="program-time">22:00</span> <span>Фейерверк</span></div>
+            </div>
+
+            <p style="font-size: 12px; color: #a8c3a6;">Дресс-код: лесные тона (изумрудный, золотой, бежевый)</p>
+
+            <a href="#" class="btn">Открыть карту</a>
+            
+            <div class="footer">
+                Пожалуйста, подтвердите свое присутствие до 1 мая 2026:<br>
+                <strong>+7 (999) 123-45-67</strong>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
