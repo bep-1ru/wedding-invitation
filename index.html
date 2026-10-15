@@ -15,70 +15,49 @@
             --silver: #D7D3E7;
         }
 
-        /* Сброс отступов и запрет скролла во время анимации */
         body, html {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100dvh;
+            margin: 0; padding: 0; width: 100%; height: 100dvh;
             overflow: hidden;
             font-family: 'Cormorant Garamond', serif;
-            background: radial-gradient(circle at center, #1a1a2e 0%, #0b0b14 100%);
+            /* Общий фон для всех страниц (без розового) */
+            background: linear-gradient(135deg, var(--silver) 0%, var(--dusty-blue) 100%);
         }
 
-        /* Общие стили для страниц */
         .page {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100dvh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            position: absolute; top: 0; left: 0; width: 100%; height: 100dvh;
+            display: flex; justify-content: center; align-items: center;
             transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
-            opacity: 1;
-            transform: scale(1);
-            overflow-y: auto; /* Разрешаем скролл внутри страницы */
+            opacity: 1; transform: scale(1); overflow-y: auto;
         }
 
-        /* Скрытая страница */
         .page.hidden {
-            opacity: 0;
-            transform: scale(1.1);
-            pointer-events: none;
+            opacity: 0; transform: scale(1.1); pointer-events: none;
         }
 
         /* --- СТРАНИЦА 1: КОТИКИ --- */
         #page-cats {
-            background: radial-gradient(circle at center, #1a1a2e 0%, #0b0b14 100%);
+            background: transparent;
         }
         .cat-container {
-            position: relative;
-            width: 90%;
-            max-width: 400px;
+            position: relative; width: 90%; max-width: 380px;
             display: flex; flex-direction: column; align-items: center;
             text-align: center;
+            padding-top: 10px; 
         }
         .cat-image {
-            width: 100%;
-            border-radius: 20px;
-            box-shadow: 0 0 40px rgba(158, 27, 96, 0.3);
+            width: 100%; border-radius: 20px;
+            border: 3px solid var(--royal-burgundy);
+            box-shadow: 0 15px 35px rgba(107, 13, 48, 0.25);
         }
-        .prompt-text {
-            color: var(--silver);
-            font-size: 22px;
-            margin-bottom: 20px;
-            font-style: italic;
-        }
+        
         .magic-button {
             position: absolute;
-            bottom: 12%;
+            bottom: 6%; 
             left: 50%;
             transform: translateX(-50%);
-            background-color: var(--berry);
+            background-color: var(--berry); 
             color: var(--silver);
-            padding: 15px 35px;
+            padding: 12px 30px;
             border-radius: 50px;
             text-decoration: none;
             font-size: 20px;
@@ -104,57 +83,58 @@
 
         /* --- СТРАНИЦА 2: ПРИГЛАШЕНИЕ --- */
         #page-invitation {
-            background: linear-gradient(135deg, var(--silver) 0%, var(--dusty-blue) 100%);
-            display: none; /* Изначально скрыта */
+            background: transparent;
+            display: none;
         }
-        #page-invitation.active {
-            display: flex; /* Показываем, когда нужно */
-        }
+        #page-invitation.active { display: flex; }
         
+        /* Карточка приглашения: убрали розовый, сделали компактнее */
         .invitation-card {
-            background-color: var(--pink);
+            background-color: rgba(255, 255, 255, 0.9); /* Белый с легкой прозрачностью */
             border: 2px solid var(--royal-burgundy);
-            border-radius: 30px;
-            padding: 40px 30px;
-            box-shadow: 0 15px 35px rgba(107, 13, 48, 0.15);
-            position: relative;
-            margin: 20px;
-            text-align: center;
-            max-width: 480px;
-            width: 90%;
-            box-sizing: border-box;
+            border-radius: 25px; 
+            padding: 25px 20px; /* Уменьшили отступы */
+            box-shadow: 0 15px 35px rgba(107, 13, 48, 0.2);
+            position: relative; margin: 15px; text-align: center;
+            max-width: 460px; width: 95%; box-sizing: border-box;
         }
-        .invitation-card::before { content: '✨'; position: absolute; top: -15px; left: 20px; font-size: 24px; }
-        .invitation-card::after { content: '✨'; position: absolute; bottom: -15px; right: 20px; font-size: 24px; }
+        .invitation-card::before { content: '✨'; position: absolute; top: -15px; left: 20px; font-size: 22px; }
+        .invitation-card::after { content: '✨'; position: absolute; bottom: -15px; right: 20px; font-size: 22px; }
+        
         .subtitle {
-            font-family: 'Great Vibes', cursive; font-size: 34px;
-            color: var(--berry); margin-bottom: 25px; line-height: 1.2;
+            font-family: 'Great Vibes', cursive; 
+            font-size: 34px; /* Уменьшили заголовок */
+            color: var(--berry); margin-bottom: 15px; line-height: 1.1;
         }
-        .text-block { font-size: 18px; line-height: 1.6; margin-bottom: 20px; color: var(--royal-burgundy); }
-        .date-box {
-            background-color: rgba(215, 211, 231, 0.6);
-            border-radius: 15px; padding: 15px; margin: 25px 0;
-            border: 1px dashed var(--berry);
+
+        /* Рамка для первого абзаца: компактнее */
+        .intro-box {
+            border: 2px dashed var(--berry);
+            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 15px;
+            background-color: rgba(215, 211, 231, 0.3); /* Легкий серо-голубой оттенок вместо розового */
+            font-size: 18px; 
+            line-height: 1.4;
             color: var(--royal-burgundy);
         }
-        .date-box span {
-            font-size: 26px; font-weight: 600; color: var(--royal-burgundy);
-            letter-spacing: 2px; display: block; margin-top: 5px;
-        }
+
         .rsvp-section {
-            margin-top: 25px; padding-top: 25px;
-            border-top: 1px solid var(--mauve); font-size: 17px; line-height: 1.6;
+            margin-top: 15px; padding-top: 15px;
+            border-top: 1px solid var(--mauve); 
+            font-size: 17px; 
+            line-height: 1.4;
             color: var(--royal-burgundy);
         }
-        .rsvp-section p { margin: 12px 0; }
+        .rsvp-section p { margin: 8px 0; }
+        
         .contact-btn {
-            display: inline-block; margin-top: 20px; padding: 14px 30px;
+            display: inline-block; margin-top: 15px; padding: 12px 25px;
             background-color: var(--berry); color: var(--silver);
             text-decoration: none; border-radius: 25px;
             font-family: 'Cormorant Garamond', serif;
             font-size: 18px; font-weight: 600; letter-spacing: 1px;
-            transition: all 0.3s ease;
-            border: none; cursor: pointer;
+            transition: all 0.3s ease; border: none; cursor: pointer;
         }
         .contact-btn:hover { background-color: var(--royal-burgundy); transform: translateY(-2px); }
 
@@ -165,11 +145,7 @@
     <!-- СТРАНИЦА 1: КОТИКИ -->
     <div id="page-cats" class="page">
         <div class="cat-container">
-            <div class="prompt-text">Готовы узнать свою судьбу?</div>
-            
-            <!-- Убедитесь, что файл называется cats.jpg и лежит рядом -->
             <img src="cats.jpg" alt="Котики гадают" class="cat-image" id="cat-img">
-            
             <button class="magic-button" id="btn-magic">Жми</button>
         </div>
     </div>
@@ -178,20 +154,17 @@
     <div id="page-invitation" class="page hidden">
         <div class="invitation-card">
             <div class="subtitle">Предсказание</div>
-            <div class="text-block">
-                Желаете узнать, что приготовила судьба? Видим мы путь прекрасный, утопающий в цветах и весенней зелени. Случится это в 27 году, где-то в мае месяце.
+            
+            <div class="intro-box">
+                Желаете узнать, что приготовила судьба? Видим мы путь прекрасный, утопающий в цветах и весенней зелени. Случится это в 27 году, где-то в мае месяце.<br><br>
+                А если заглянуть в хрустальный шар поглубже... <strong>22.05.2027</strong>. Как раз на нашу свадьбу в Красноярске!
             </div>
-            <div class="date-box">
-                <div>А если заглянуть в хрустальный шар поглубже...</div>
-                <span>22.05.2027</span>
-                <div>Как раз на нашу свадьбу в Красноярске!</div>
-            </div>
+
             <div class="rsvp-section">
                 <p>Поделитесь своими планами — решитесь ли вы разделить с нами этот день? Будем очень благодарны, если сможете вы ответ свой заранее дать.</p>
                 <p>Если путь вам неблизкий предстоит, мы с радостью предоставим уютный ночлег.</p>
                 <p>И еще один важный момент: приоткройте завесу тайны — нет ли у вас аллергии на какие-то продукты, и как вы относитесь к зельям крепким?</p>
                 
-                <!-- ЗАМЕНИТЕ ССЫЛКУ НА ВАШУ ИЗ MAX -->
                 <a href="https://max.ru/u/ВАША_ССЫЛКА" class="contact-btn">Дать ответ</a>
             </div>
         </div>
@@ -203,28 +176,23 @@
             const invPage = document.getElementById('page-invitation');
             const catImg = document.getElementById('cat-img');
 
-            // 1. Эффект "вспышки" на картинке котиков
             catImg.style.transition = 'all 0.5s ease';
             catImg.style.filter = 'brightness(3) blur(10px)';
             catImg.style.transform = 'scale(1.1)';
 
-            // 2. Через 0.5 секунды скрываем страницу с котиками
             setTimeout(() => {
                 catPage.classList.add('hidden');
-                
-                // Делаем страницу приглашения видимой, но пока прозрачной для анимации
                 invPage.style.display = 'flex';
                 invPage.style.opacity = '0';
                 invPage.style.transform = 'scale(0.9)';
                 
-                // 3. Запускаем плавное появление приглашения
                 setTimeout(() => {
                     invPage.classList.remove('hidden');
                     invPage.style.opacity = '1';
                     invPage.style.transform = 'scale(1)';
-                }, 50); // Небольшая задержка для срабатывания CSS transition
+                }, 50);
 
-            }, 500); // Ждем завершения анимации вспышки
+            }, 500);
         });
     </script>
 </body>
