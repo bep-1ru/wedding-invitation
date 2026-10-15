@@ -3,165 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Приглашение на свадьбу</title>
-    <!-- Подключаем красивые шрифты -->
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+    <title>Судьба ждет...</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        :root {
-            /* Палитра из вашей картинки La Dolce Vita */
-            --dusty-blue: #A9B8C8;
-            --french-blue: #A9B7D4;
-            --berry: #9E1B60;
-            --royal-burgundy: #6B0D30;
-            --mauve: #BD2D62;
-            --pink: #F2A6B6;
-            --silver: #D7D3E7;
-        }
-
         body {
-            margin: 0;
-            padding: 0;
-            /* Нежный градиент из Silver в Dusty Blue */
-            background: linear-gradient(135deg, var(--silver) 0%, var(--dusty-blue) 100%);
-            background-attachment: fixed;
+            margin: 0; padding: 0;
+            /* Темный мистический фон */
+            background: radial-gradient(circle at center, #1a1a2e 0%, #0b0b14 100%);
+            height: 100vh;
+            display: flex; justify-content: center; align-items: center;
             font-family: 'Cormorant Garamond', serif;
-            color: var(--royal-burgundy);
-            display: flex;
-            justify-content: center;
-            min-height: 100vh;
+            overflow: hidden;
         }
-
-        .container {
-            max-width: 480px;
-            width: 100%;
-            padding: 20px;
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        /* Основной блок приглашения */
-        .invitation-card {
-            background-color: var(--pink);
-            border: 2px solid var(--royal-burgundy);
-            border-radius: 30px;
-            padding: 40px 30px;
-            box-shadow: 0 15px 35px rgba(107, 13, 48, 0.15);
+        .cat-container {
             position: relative;
-            margin-top: 20px;
+            width: 90%;
+            max-width: 400px;
+            display: flex; flex-direction: column; align-items: center;
             text-align: center;
         }
-
-        /* Декоративные элементы */
-        .invitation-card::before {
-            content: '✨';
-            position: absolute;
-            top: -15px;
-            left: 20px;
-            font-size: 24px;
+        .cat-image {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 0 40px rgba(158, 27, 96, 0.3); /* Свечение Berry */
         }
-        .invitation-card::after {
-            content: '✨';
-            position: absolute;
-            bottom: -15px;
-            right: 20px;
-            font-size: 24px;
-        }
-
-        .subtitle {
-            font-family: 'Great Vibes', cursive;
-            font-size: 34px;
-            color: var(--berry);
-            margin-bottom: 25px;
-            line-height: 1.2;
-        }
-
-        .text-block {
-            font-size: 18px;
-            line-height: 1.6;
+        .prompt-text {
+            color: #D7D3E7; /* Silver */
+            font-size: 22px;
             margin-bottom: 20px;
+            font-style: italic;
         }
-
-        .date-box {
-            background-color: rgba(215, 211, 231, 0.6); /* Silver с прозрачностью */
-            border-radius: 15px;
-            padding: 15px;
-            margin: 25px 0;
-            border: 1px dashed var(--berry);
-        }
-
-        .date-box span {
-            font-size: 26px;
-            font-weight: 600;
-            color: var(--royal-burgundy);
-            letter-spacing: 2px;
-            display: block;
-            margin-top: 5px;
-        }
-
-        .rsvp-section {
-            margin-top: 25px;
-            padding-top: 25px;
-            border-top: 1px solid var(--mauve);
-            font-size: 17px;
-            line-height: 1.6;
-        }
-
-        .rsvp-section p {
-            margin: 12px 0;
-        }
-
-        .contact-btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 14px 30px;
-            background-color: var(--berry);
-            color: var(--silver);
+        /* Стили для кнопки на волшебном шаре */
+        .magic-button {
+            position: absolute;
+            bottom: 12%; /* Позиционируем кнопку там, где на картинке шар */
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #9E1B60; /* Berry */
+            color: #D7D3E7; /* Silver */
+            padding: 15px 35px;
+            border-radius: 50px;
             text-decoration: none;
-            border-radius: 25px;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 18px;
+            font-size: 20px;
             font-weight: 600;
-            letter-spacing: 1px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 0 20px #9E1B60, 0 0 40px #6B0D30;
+            animation: pulse 2s infinite;
             transition: all 0.3s ease;
         }
-
-        .contact-btn:hover {
-            background-color: var(--royal-burgundy);
-            transform: translateY(-2px);
+        .magic-button:hover {
+            background-color: #6B0D30; /* Royal Burgundy */
+            box-shadow: 0 0 30px #9E1B60, 0 0 60px #BD2D62;
         }
-
+        /* Анимация пульсации для кнопки */
+        @keyframes pulse {
+            0% { transform: translateX(-50%) scale(1); }
+            50% { transform: translateX(-50%) scale(1.05); }
+            100% { transform: translateX(-50%) scale(1); }
+        }
     </style>
 </head>
 <body>
-
-    <div class="container">
-        <div class="invitation-card">
-            <div class="subtitle">Предсказание</div>
-            
-            <div class="text-block">
-                Желаете узнать, что приготовила судьба? Видим мы путь прекрасный, утопающий в цветах и весенней зелени. Случится это в 27 году, где-то в мае месяце.
-            </div>
-
-            <div class="date-box">
-                <div>А если заглянуть в хрустальный шар поглубже...</div>
-                <span>22.05.2027</span>
-                <div>Как раз на нашу свадьбу в Красноярске!</div>
-            </div>
-
-            <div class="rsvp-section">
-                <p>Поделитесь своими планами — решитесь ли вы разделить с нами этот день? Будем очень благодарны, если сможете вы ответ свой заранее дать.</p>
-                
-                <p>Если путь вам неблизкий предстоит, мы с радостью предоставим уютный ночлег.</p>
-                
-                <p>И еще один важный момент: приоткройте завесу тайны — нет ли у вас аллергии на какие-то продукты, и как вы относитесь к зельям крепким?</p>
-                
-                <!-- Замените номер телефона в ссылке на свой -->
-                <a href="https://wa.me/79991234567" class="contact-btn">Дать ответ</a>
-            </div>
-        </div>
+    <div class="cat-container">
+        <div class="prompt-text">Готовы узнать свою судьбу?</div>
+        
+        <!-- ВАЖНО: Замените cats.jpg на имя вашего файла с котиками -->
+        <img src="cats.jpg" alt="Котики гадают" class="cat-image">
+        
+        <!-- Кнопка ведет на страницу invitation.html -->
+        <a href="invitation.html" class="magic-button">Жми</a>
     </div>
-
 </body>
 </html>
