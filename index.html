@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Судьба ждет...</title>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Предзагрузка картинки с котиками для быстрой работы -->
+    <link rel="preload" as="image" href="cats.jpg">
+
     <style>
         :root {
             --dusty-blue: #A9B8C8;
@@ -19,7 +23,6 @@
             margin: 0; padding: 0; width: 100%; height: 100dvh;
             overflow: hidden;
             font-family: 'Cormorant Garamond', serif;
-            /* Общий фон для всех страниц (без розового) */
             background: linear-gradient(135deg, var(--silver) 0%, var(--dusty-blue) 100%);
         }
 
@@ -41,8 +44,7 @@
         .cat-container {
             position: relative; width: 90%; max-width: 380px;
             display: flex; flex-direction: column; align-items: center;
-            text-align: center;
-            padding-top: 10px; 
+            text-align: center; padding-top: 10px; 
         }
         .cat-image {
             width: 100%; border-radius: 20px;
@@ -52,24 +54,15 @@
         
         .magic-button {
             position: absolute;
-            bottom: 6%; 
-            left: 50%;
+            bottom: 6%; left: 50%;
             transform: translateX(-50%);
-            background-color: var(--berry); 
-            color: var(--silver);
-            padding: 12px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 20px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            background-color: var(--berry); color: var(--silver);
+            padding: 12px 30px; border-radius: 50px;
+            text-decoration: none; font-size: 20px; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 2px;
             box-shadow: 0 0 20px var(--berry), 0 0 40px var(--royal-burgundy);
-            animation: pulse 2s infinite;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: none;
-            font-family: inherit;
+            animation: pulse 2s infinite; transition: all 0.3s ease;
+            cursor: pointer; border: none; font-family: inherit;
         }
         .magic-button:hover {
             background-color: var(--royal-burgundy);
@@ -88,12 +81,10 @@
         }
         #page-invitation.active { display: flex; }
         
-        /* Карточка приглашения: убрали розовый, сделали компактнее */
         .invitation-card {
-            background-color: rgba(255, 255, 255, 0.9); /* Белый с легкой прозрачностью */
+            background-color: rgba(255, 255, 255, 0.9);
             border: 2px solid var(--royal-burgundy);
-            border-radius: 25px; 
-            padding: 25px 20px; /* Уменьшили отступы */
+            border-radius: 25px; padding: 25px 20px;
             box-shadow: 0 15px 35px rgba(107, 13, 48, 0.2);
             position: relative; margin: 15px; text-align: center;
             max-width: 460px; width: 95%; box-sizing: border-box;
@@ -102,41 +93,67 @@
         .invitation-card::after { content: '✨'; position: absolute; bottom: -15px; right: 20px; font-size: 22px; }
         
         .subtitle {
-            font-family: 'Great Vibes', cursive; 
-            font-size: 34px; /* Уменьшили заголовок */
+            font-family: 'Great Vibes', cursive; font-size: 34px;
             color: var(--berry); margin-bottom: 15px; line-height: 1.1;
         }
 
-        /* Рамка для первого абзаца: компактнее */
         .intro-box {
             border: 2px dashed var(--berry);
-            border-radius: 15px;
-            padding: 15px;
-            margin-bottom: 15px;
-            background-color: rgba(215, 211, 231, 0.3); /* Легкий серо-голубой оттенок вместо розового */
-            font-size: 18px; 
-            line-height: 1.4;
-            color: var(--royal-burgundy);
+            border-radius: 15px; padding: 15px; margin-bottom: 15px;
+            background-color: rgba(215, 211, 231, 0.3);
+            font-size: 18px; line-height: 1.4; color: var(--royal-burgundy);
         }
 
         .rsvp-section {
             margin-top: 15px; padding-top: 15px;
             border-top: 1px solid var(--mauve); 
-            font-size: 17px; 
-            line-height: 1.4;
-            color: var(--royal-burgundy);
+            font-size: 17px; line-height: 1.4; color: var(--royal-burgundy);
         }
         .rsvp-section p { margin: 8px 0; }
         
+        /* ========================================== */
+        /* БЛОК С ФИНАЛЬНОЙ КАРТИНКОЙ И КНОПКАМИ */
+        /* ========================================== */
+        .action-area {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .couple-image {
+            width: 160px; /* Размер картинки с парой */
+            height: auto;
+            margin-bottom: 10px;
+            /* Волшебное свойство: убирает белый фон у картинки */
+            mix-blend-mode: multiply; 
+            /* Если фон все еще виден, можно попробовать добавить прозрачности через фильтр:
+               filter: contrast(1.2); */
+        }
+
         .contact-btn {
-            display: inline-block; margin-top: 15px; padding: 12px 25px;
+            display: inline-block; padding: 12px 25px;
             background-color: var(--berry); color: var(--silver);
             text-decoration: none; border-radius: 25px;
             font-family: 'Cormorant Garamond', serif;
             font-size: 18px; font-weight: 600; letter-spacing: 1px;
             transition: all 0.3s ease; border: none; cursor: pointer;
+            width: 80%;
         }
         .contact-btn:hover { background-color: var(--royal-burgundy); transform: translateY(-2px); }
+
+        /* Кнопка возврата */
+        .back-btn {
+            display: inline-block; margin-top: 12px; padding: 10px 25px;
+            background-color: transparent; color: var(--royal-burgundy);
+            text-decoration: none; border-radius: 25px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 16px; font-weight: 600;
+            border: 1px solid var(--royal-burgundy);
+            cursor: pointer; transition: all 0.3s ease;
+            width: 80%;
+        }
+        .back-btn:hover { background-color: var(--silver); }
 
     </style>
 </head>
@@ -165,12 +182,23 @@
                 <p>Если путь вам неблизкий предстоит, мы с радостью предоставим уютный ночлег.</p>
                 <p>И еще один важный момент: приоткройте завесу тайны — нет ли у вас аллергии на какие-то продукты, и как вы относитесь к зельям крепким?</p>
                 
-                <a href="https://max.ru/u/ВАША_ССЫЛКА" class="contact-btn">Дать ответ</a>
+                <!-- БЛОК С ПАРОЙ И КНОПКАМИ -->
+                <div class="action-area">
+                    <!-- Убедитесь, что файл называется couple.jpg -->
+                    <img src="couple.jpg" alt="Пара" class="couple-image">
+                    
+                    <!-- ЗАМЕНИТЕ ССЫЛКУ НА ВАШУ ИЗ MAX -->
+                    <a href="https://max.ru/u/ВАША_ССЫЛКА" class="contact-btn">Дать ответ в MAX</a>
+                    
+                    <!-- Кнопка возврата назад в чат -->
+                    <button onclick="goBack()" class="back-btn">← Вернуться в чат</button>
+                </div>
             </div>
         </div>
     </div>
 
     <script>
+        // Скрипт для плавного перехода (Котики -> Приглашение)
         document.getElementById('btn-magic').addEventListener('click', function() {
             const catPage = document.getElementById('page-cats');
             const invPage = document.getElementById('page-invitation');
@@ -191,9 +219,18 @@
                     invPage.style.opacity = '1';
                     invPage.style.transform = 'scale(1)';
                 }, 50);
-
             }, 500);
         });
+
+        // Скрипт для возврата в чат (назад по истории браузера)
+        function goBack() {
+            if (window.history.length > 1) {
+                window.history.back();
+            } else {
+                // Если истории нет (например, открыли с главной страницы), просто закрываем вкладку
+                window.close();
+            }
+        }
     </script>
 </body>
 </html>
